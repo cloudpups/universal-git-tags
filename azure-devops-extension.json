@@ -1,0 +1,123 @@
+{
+    "manifestVersion": 1,
+    "id": "universaltags",
+    "publisher": "cloudpup",
+    "version": "0.0.45",
+    "name": "Universal Git Tags",
+    "description": "Add a Tag to any commit, in any* system. Sensible defaults included. *verified systems include the following: GitHub, GHE, BitBucket Cloud, GitLab Cloud.",
+    "homepage":"https://github.com/cloudpups/universal-git-tags",
+    "branding": {
+        "color": "#C6F0FF",
+        "theme": "light"
+    },
+    "public": false,
+    "categories": [
+        "Azure Pipelines",
+        "Build and Release"
+    ],
+    "tags": [
+        "build",
+        "deploy",
+        "git",
+        "version"
+    ],
+    "icons": {
+        "default": "images/extension-icon.png"
+    },
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],
+    "files": [
+        {
+            "path": "tasks"
+        }
+    ],
+    "content": {
+        "details": {
+            "path": "Overview.md"
+        },
+        "license": {
+            "path": "LICENSE"
+        }
+    },
+    "links": {
+        "home": {
+            "uri": "https://github.com/cloudpups/universal-git-tags"
+        },
+        "repository": {
+            "uri": "https://github.com/cloudpups/universal-git-tags"
+        },
+        "issues": {
+            "uri": "https://github.com/cloudpups/universal-git-tags/issues"
+        }
+    },
+    "repository": {
+        "type": "git",
+        "uri": "https://github.com/cloudpups/universal-git-tags"
+    },
+    "contributions": [
+        {
+            "id": "93b182f5-17d4-482f-b562-7e9a32209f2e",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "tasks/tag"
+            }
+        },
+        {
+            "id": "1e19fdb6-49a4-4f5e-951f-7f4ca3ae97de",
+            "description": "Credentials for Universal Git Tagging",
+            "type": "ms.vss-endpoint.service-endpoint-type",
+            "targets": [
+                "ms.vss-endpoint.endpoint-types"
+            ],
+            "properties": {
+                "name": "credentials",
+                "displayName": "Universal Git Tagging Credentials",
+                "url": {
+                    "displayName": "SCM Url",
+                    "helpText": "Url to use."
+                },
+                "authenticationSchemes": [
+                    {
+                        "type": "ms.vss-endpoint.endpoint-auth-scheme-token",
+                        "inputDescriptors": [
+                            {
+                                "id": "pat",
+                                "name": "Personal Access Token",
+                                "description": "Personal access token to be used in the x-oauth-header passed with repository operations.",
+                                "inputMode": "passwordbox",
+                                "isConfidential": true,
+                                "validation": {
+                                    "isRequired": true,
+                                    "dataType": "string"
+                                }
+                            },
+                            {
+                                "id": "apitoken",
+                                "name": "Null Token",
+                                "description": "Not needed",
+                                "inputMode": "passwordBox",
+                                "isConfidential": false,
+                                "validation": {
+                                    "isRequired": false,
+                                    "dataType": "string"
+                                },
+                                "values": {
+                                    "inputId": "apitokenInput",
+                                    "defaultValue": "",
+                                    "isDisabled": true
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "helpMarkDown": ""
+            }
+        }
+    ]
+}
