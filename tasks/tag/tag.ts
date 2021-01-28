@@ -30,6 +30,8 @@ function buildCredentialsFunction(credentials: GitTagCredentials) {
     return function () { return "";}
 }
 
+let execFunction : function(string, string[]) Q.Promise<number>  = tl.exec;
+
 export async function addTag(options: TagOptions) {
     tl.exec("git", "init")
 

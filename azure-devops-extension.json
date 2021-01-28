@@ -2,9 +2,9 @@
     "manifestVersion": 1,
     "id": "universaltags",
     "publisher": "cloudpup",
-    "version": "0.0.47",
+    "version": "0.0.48",
     "name": "Universal Git Tags",
-    "description": "Add a Tag to any commit, in any* system. Sensible defaults included. *verified systems include the following: GitHub, GHE, BitBucket Cloud, GitLab Cloud.",
+    "description": "Add a Tag to any commit, in any* system. Sensible defaults included.",
     "homepage":"https://github.com/cloudpups/universal-git-tags",
     "branding": {
         "color": "#C6F0FF",
