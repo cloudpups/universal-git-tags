@@ -19,16 +19,16 @@ export interface TagOptions {
     ForcePush: boolean
 }
 
-// function buildCredentialsFunction(credentials: GitTagCredentials) {
-//     if (credentials.Type == 'PersonalAccessToken') {
-//         console.log("Using PersonalAccessToken for Auth.")
-//         return function () {
-//             return NodeGit.Cred.userpassPlaintextNew(credentials.Value, "x-oauth-basic");
-//         }
-//     }
+function buildCredentialsFunction(credentials: GitTagCredentials) {
+    if (credentials.Type == 'PersonalAccessToken') {
+        console.log("Using PersonalAccessToken for Auth.")
+        return function () {
+            return function() {return `x-oauth-basic: ${credentials.Value}`;}
+        }
+    }
 
-//     return function () { }
-// }
+    return function () { return "";}
+}
 
 export async function addTag(options: TagOptions) {
     tl.exec("git", "init")
@@ -41,6 +41,7 @@ export async function addTag(options: TagOptions) {
         "init",
         `config user.name "Universal Git Tags"`,
         "config user.email universal-git-tags@cloudpup.dev",
+        `config http.extraheader "${buildCredentialsFunction(options.Credentials)}"`,
         `remote add origin ${repoUrl}`,
         `fetch origin ${options.CommitHash} --depth=1`,
         `tag -a "${options.TagName}"${tagMessageCommand} ${options.CommitHash}${forceCommand}`,
