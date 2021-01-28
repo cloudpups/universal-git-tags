@@ -2,12 +2,10 @@
   "dependencies": {
     "azure-pipelines-task-lib": "^3.0.6-preview.1",
     "azure-pipelines-tool-lib": "^1.0.0-preview.0",
-    "nodegit": "^0.27.0",
     "vss-web-extension-sdk": "^5.141.0"
   },
   "devDependencies": {
     "@types/node": "^14.14.22",
-    "@types/nodegit": "^0.26.12",
     "@types/q": "^1.5.4"
   }
 }

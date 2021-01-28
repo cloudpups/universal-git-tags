@@ -9,7 +9,7 @@
     "author": "CloudPup",
     "version": {
         "Major": 0,
-        "Minor": 45,
+        "Minor": 47,
         "Patch": 0
     },
     "instanceNameFormat": "Universal Git Tag",
@@ -26,7 +26,7 @@
             "type": "string",
             "label": "Repository ID",
             "required": true,
-            "helpMarkDown": "The ID of the Git Repo to push the Tag to. For example, `cloudpups/universal-git-tags.git`"
+            "helpMarkDown": "The ID of the Git Repo to push the Tag to. For example, `cloudpups/universal-git-tags`"
         },
         {
             "name": "commitHash",

@@ -1,5 +1,5 @@
-import * as tl from 'azure-pipelines-task-lib/task';
-import * as tag from'./tag';
+import tl = require('azure-pipelines-task-lib/task');
+import tag = require('./tag');
 
 type MaybeValue = ValueNotFound | ValueFound;
 
@@ -92,26 +92,26 @@ async function run() {
         pat: token
     })}`);
 
-    
-    let credentials : tag.GitTagCredentials;
-    if(token != undefined) {
+
+    let credentials: tag.GitTagCredentials;
+    if (token != undefined) {
         credentials = {
-            Type:"PersonalAccessToken",
-            Value:token!
+            Type: "PersonalAccessToken",
+            Value: token!
         };
-    } 
+    }
     else {
-        credentials = { 
-            Type: 'NoCredentials' 
+        credentials = {
+            Type: 'NoCredentials'
         }
     }
-    
+
     await tag.addTag({
-        CommitHash:commitHash,
-        ForcePush:forcePush,
-        RepoId:repoId,
-        ServiceUrl:endpoint!,
-        TagMessage:tagMessage,
+        CommitHash: commitHash,
+        ForcePush: forcePush,
+        RepoId: repoId,
+        ServiceUrl: endpoint!,
+        TagMessage: tagMessage,
         TagName: tagName,
         Credentials: credentials
     });

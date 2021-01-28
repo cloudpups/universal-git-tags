@@ -20,8 +20,7 @@
     "build:dev": "npm run compile:dev && npm run postbuild",
     "postbuild_no": "npm run package-extension -- --rev-version",
     "package-extension": "tfx extension create --manifests azure-devops-extension.json",
-    "publish-extension": "tfx extension publish --manifests azure-devops-extension.json",
-    "cleanup-annoying": "rimraf ./tasks/tag/node_modules/nodegit/vendor/libgit2/tests/"
+    "publish-extension": "tfx extension publish --manifests azure-devops-extension.json",    
   },
   "dependencies": {
     "azure-devops-extension-api": "~1.157.0",
