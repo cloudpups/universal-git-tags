@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "universaltags",
     "publisher": "cloudpup",
-    "version": "0.0.48",
+    "version": "0.0.54",
     "name": "Universal Git Tags",
     "description": "Add a Tag to any commit, in any* system. Sensible defaults included.",
     "homepage":"https://github.com/cloudpups/universal-git-tags",
@@ -88,8 +88,8 @@
                         "inputDescriptors": [
                             {
                                 "id": "pat",
-                                "name": "Personal Access Token",
-                                "description": "Personal access token to be used in the x-oauth-header passed with repository operations.",
+                                "name": "Base64 Encoded Personal Access Token",
+                                "description": "[Base64 encoded](https://stackoverflow.com/a/55558643/1542187) Personal access token to be used in the AUTHORIZATION header passed with repository operations.",
                                 "inputMode": "passwordbox",
                                 "isConfidential": true,
                                 "validation": {
