@@ -87,12 +87,6 @@ async function run() {
     const endpoint = tl.getEndpointUrl(credentialsId, true);
     const token = tl.getEndpointAuthorizationParameter(credentialsId, "pat", false)
 
-    console.log(`${repoId} ${commitHash} ${tagName} ${tagMessage} ${forcePush} ${JSON.stringify({
-        url: endpoint,
-        pat: token
-    })}`);
-
-
     let credentials: tag.GitTagCredentials;
     if (token != undefined) {
         credentials = {
@@ -104,9 +98,14 @@ async function run() {
         credentials = {
             Type: 'NoCredentials'
         }
-    }
+    }    
 
-    await tag.addTag({
+    const executor = (toolName:string, args: string | string[]) => {
+        console.log(`Executing ${toolName}`);
+        return tl.exec(toolName, args);
+    };
+
+    const response = await tag.addTag({
         CommitHash: commitHash,
         ForcePush: forcePush,
         RepoId: repoId,
@@ -114,7 +113,13 @@ async function run() {
         TagMessage: tagMessage,
         TagName: tagName,
         Credentials: credentials
-    });
+    }, executor);
+
+    if(response.Succeeded) {
+        return;
+    }
+
+    tl.setResult(tl.TaskResult.Failed, response.Message, true);
 }
 
 run();
