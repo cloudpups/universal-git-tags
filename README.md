@@ -31,9 +31,7 @@ For Base64 encoding, Google has a fairly handy tool: https://toolbox.googleapps.
 
 ### GitLab
 
-* [Generate a PAT](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html) with the proper permissions to read and write to repositories.
-* Using your **PAT** in place of `token`, encode the following string in Base64: `basic token`
-* Using the newly encoded value in place of `encodedValue`, supply the following string to the Service Connection: `encodedValue`
+*help with verification would be appreciated*
 
 ## Development
 

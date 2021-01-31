@@ -2,10 +2,13 @@
 
 For clarity, "any system" will always be a work in progress (more tools appear every week it seems!). So far, verified systems include the following:
 
-* GitHub
-* GHE Server
-* GitLab Cloud
-* BitBucket Cloud
+### Supported Systems
+
+* GitHub 
+* BitBucket
+* Azure DevOps Services
+
+> Hi! 👋🏻 If you want to see a new service be tested, please open an Issue (if one does not exist) describing what you want supported. Including links to documentation around Access Token usage will help the request go through quicker.
 
 ## Universal Git Tags
 
@@ -20,7 +23,7 @@ This will add an annotated Tag to a commit and push it to the specified remote.
 * ✔ Cross platform
    * Can run on updated build agents.
 * ✔ Repository agnostic. 
-   * Repository can be in GitHub, GitLab, BitBucket, etc!
+   * Repository can be in GitHub, Azure DevOps, BitBucket, etc!
 
 ## Motivation
 
