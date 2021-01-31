@@ -2,9 +2,9 @@
     "manifestVersion": 1,
     "id": "universaltags",
     "publisher": "cloudpup",
-    "version": "0.0.67",
+    "version": "0.0.82",
     "name": "Universal Git Tags",
-    "description": "Add a Tag to any commit, in any* system. Sensible defaults included.",
+    "description": "Add a Tag to any commit, in any* system (see Overview for verified systems). Sensible defaults included.",
     "homepage":"https://github.com/cloudpups/universal-git-tags",
     "branding": {
         "color": "#C6F0FF",
@@ -88,8 +88,9 @@
                         "inputDescriptors": [
                             {
                                 "id": "pat",
-                                "name": "Base64 Encoded Personal Access Token",
-                                "description": "[Base64 encoded](https://stackoverflow.com/a/55558643/1542187) Personal access token to be used in the AUTHORIZATION header passed with repository operations.",
+                                "name": "Appropriately Formatted Credentials",
+                                "description": "Each system (GitHub, BitBucket, etc) has their own special requirements for this. Please check out the Supplying Credentials section of the Overview for more detail: https://github.com/cloudpups/universal-git-tags/blob/main/Overview.md#supplying-credentials",
+                                "helpMarkDown": "Each system (GitHub, BitBucket, etc) has their own special requirements for this. Please check out the [Supplying Credentials](https://github.com/cloudpups/universal-git-tags/blob/main/Overview.md#supplying-credentials) section of the Overview for more detail.",
                                 "inputMode": "passwordbox",
                                 "isConfidential": true,
                                 "validation": {
@@ -113,7 +114,8 @@
                                     "isDisabled": true
                                 }
                             }
-                        ]
+                        ],
+                        "helpMarkDown": "Each system (GitHub, BitBucket, etc) has their own special requirements for this. Please check out the [Supplying Credentials](https://github.com/cloudpups/universal-git-tags/blob/main/Overview.md#supplying-credentials) section of the Overview for more detail."
                     }
                 ],
                 "helpMarkDown": ""

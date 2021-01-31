@@ -25,6 +25,29 @@ This will add an annotated Tag to a commit and push it to the specified remote.
 * ✔ Repository agnostic. 
    * Repository can be in GitHub, Azure DevOps, BitBucket, etc!
 
+## Supplying Credentials
+
+Different systems have different requirements around how a Personal Access Token must be supplied in the extra headers.
+
+For Base64 encoding, Google has a fairly handy tool: https://toolbox.googleapps.com/apps/encode_decode/
+
+### GitHub
+
+* [Generate a PAT](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) with the proper permissions to read and write to repositories.
+* Using your **PAT** in place of `token`, encode the following string in Base64: `token`
+* Using the newly encoded value in place of `encodedValue`, supply the following string to the Service Connection: `basic encodedValue`
+
+### Azure DevOps
+
+* [Generate a PAT](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page) with the proper permissions to read and write to repositories.
+* Using your **PAT** in place of `token`, encode the following string in Base64: `:token`
+  * **Notice** you must prepend your PAT with a colon *before* encoding it.
+* Using the newly encoded value in place of `encodedValue`, supply the following string to the Service Connection: `basic encodedValue`
+
+### GitLab
+
+*help with verification would be appreciated*
+
 ## Motivation
 
 While other tasks exist for tagging, they did not satisfy our needs. See our longer explanation in the [source repo](https://github.com/cloudpups/universal-git-tags#motivation) for more detail.
