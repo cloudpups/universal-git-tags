@@ -20,7 +20,7 @@ export interface TagOptions {
 function buildCredentials(credentials: GitTagCredentials) {
     if (credentials.Type == 'PersonalAccessToken') {
         console.log("Using PersonalAccessToken for Auth.")
-        return `AUTHORIZATION: Basic ${credentials.Value}`;
+        return `AUTHORIZATION: ${credentials.Value}`;
     }
 
     // if (credentials.Type == 'PersonalAccessToken') {

@@ -18,14 +18,22 @@ For Base64 encoding, Google has a fairly handy tool: https://toolbox.googleapps.
 
 ### GitHub
 
-* Encode PAT in Base64
-* Supply encoded PAT in Service Connection
+* [Generate a PAT](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) with the proper permissions to read and write to repositories.
+* Using your **PAT** in place of `token`, encode the following string in Base64: `token`
+* Using the newly encoded value in place of `encodedValue`, supply the following string to the Service Connection: `basic encodedValue`
 
 ### Azure DevOps
 
-* Prepend PAT with a colon. For example, `:PAT`
-* Encode PAT with colon in Base64
-* Supply encoded PAT + colon in Service Connection
+* [Generate a PAT](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page) with the proper permissions to read and write to repositories.
+* Using your **PAT** in place of `token`, encode the following string in Base64: `:token`
+  * **Notice** you must prepend your PAT with a colon *before* encoding it.
+* Using the newly encoded value in place of `encodedValue`, supply the following string to the Service Connection: `basic encodedValue`
+
+### GitLab
+
+* [Generate a PAT](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html) with the proper permissions to read and write to repositories.
+* Using your **PAT** in place of `token`, encode the following string in Base64: `basic token`
+* Using the newly encoded value in place of `encodedValue`, supply the following string to the Service Connection: `encodedValue`
 
 ## Development
 
