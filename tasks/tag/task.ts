@@ -11,6 +11,7 @@ class ValueNotFound {
 class ValueFound {
     Success: true = true;
     Value: string = "";
+    RawValue: string = "";
 }
 
 function tryGetValue(inputName: string): MaybeValue {
@@ -31,18 +32,36 @@ function tryGetValue(inputName: string): MaybeValue {
     if (pipelineVariableValue == undefined) {
         return {
             Success: true,
-            Value: value
+            Value: value,
+            RawValue: value
         }
     }
 
     return {
         Success: true,
-        Value: pipelineVariableValue
+        Value: pipelineVariableValue,
+        RawValue: value
     };
 }
 
 function failTask(message: string) {
     tl.setResult(tl.TaskResult.Failed, message);
+}
+
+function prepWorkingDirectory(input: { workingDirectory: string, rawWorkingDirectoryInput: string }) {
+    console.log(`"${input.workingDirectory} "${input.rawWorkingDirectoryInput}"`)
+
+    const defaultWorkingDirectoryValue = "$(Build.ArtifactStagingDirectory)/universal-tagging-prep-currenttime";
+
+    if (input.rawWorkingDirectoryInput == defaultWorkingDirectoryValue) {
+        const newPath = `${input.workingDirectory}-${Date.now()}`;
+        // TODO: put error handling here, though there should never be errors.    
+        tl.mkdirP(newPath);
+        console.log(`Prepped new folder at "${newPath}"`)
+        return newPath;
+    }
+
+    return input.workingDirectory;
 }
 
 async function run() {
@@ -74,6 +93,12 @@ async function run() {
     }
     const tagMessage = maybeTagMessage.Value;
 
+    const maybeWorkingDirectory = tryGetValue('workingDirectory');
+    if (maybeWorkingDirectory.Success == false) {
+        failTask(maybeWorkingDirectory.Message);
+        return;
+    }
+    const potentialWorkingDirectory = maybeWorkingDirectory.Value;
 
     const forcePush = tl.getBoolInput('forcePush', false);
 
@@ -98,9 +123,16 @@ async function run() {
         credentials = {
             Type: 'NoCredentials'
         }
-    }    
+    }
 
-    const executor = (toolName:string, args: string | string[]) => {
+    const workingDirectory = prepWorkingDirectory({
+        workingDirectory: potentialWorkingDirectory,
+        rawWorkingDirectoryInput: maybeWorkingDirectory.RawValue
+    });
+    
+    tl.cd(workingDirectory);
+
+    const executor = (toolName: string, args: string | string[]) => {
         console.log(`Executing ${toolName}`);
         return tl.exec(toolName, args);
     };
@@ -115,7 +147,7 @@ async function run() {
         Credentials: credentials
     }, executor);
 
-    if(response.Succeeded) {
+    if (response.Succeeded) {
         return;
     }
 

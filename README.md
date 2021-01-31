@@ -10,6 +10,23 @@ The answer is fairly simple: the existing tag plugins today seem to support a sp
 
 Futhermore, while it is true that a script could either be added inline or in the repo itself to accomplish a similar result, that adds extra stuff/cruft to the repository and pipeline definition that must now be maintianed. If you prefer to use the built in tasks of a specific pipeline platform (e.g. Circle CI, Azure DevOps) in liue of using a Gulp/Maven runner, then encapsulating/abstracting such an operation in a single Task should make sense (DRY). If you *do* prefer using pipeline platforms as a mechanism to simply kick off your own custom build scripts, then this extension probably does not fit your needs.
 
+## Supplying PATs from different systems
+
+Different systems have different requirements around how a Personal Access Token must be supplied in the extra headers.
+
+For Base64 encoding, Google has a fairly handy tool: https://toolbox.googleapps.com/apps/encode_decode/
+
+### GitHub
+
+* Encode PAT in Base64
+* Supply encoded PAT in Service Connection
+
+### Azure DevOps
+
+* Prepend PAT with a colon. For example, `:PAT`
+* Encode PAT with colon in Base64
+* Supply encoded PAT + colon in Service Connection
+
 ## Development
 
 ```sh

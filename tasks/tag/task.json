@@ -9,10 +9,17 @@
     "author": "CloudPup",
     "version": {
         "Major": 0,
-        "Minor": 54,
+        "Minor": 64,
         "Patch": 0
     },
     "instanceNameFormat": "Universal Git Tag",
+    "groups": [
+        {
+            "name": "advanced",
+            "displayName": "Advanced",
+            "isExpanded": false
+        }
+    ],
     "inputs": [
         {
             "name": "credentials",
@@ -59,6 +66,15 @@
             "defaultValue": "false",
             "required": true,
             "helpMarkDown": "Setting this to true will cause this task to overwrite existing tags."
+        },
+        {
+            "name": "workingDirectory",
+            "type": "string",
+            "label": "Working Directory",
+            "defaultValue": "$(Build.ArtifactStagingDirectory)/universal-tagging-prep-currenttime",
+            "required": true,
+            "helpMarkDown": "The directory that Universal Git Tags will run its commands. Defaults to `$(Build.ArtifactStagingDirectory)/universal-tagging-prep-currenttime` (where `currenttime` is [`Date.now()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/now)) so as to not interfere with any existing git repositories.",
+            "groupName": "advanced"
         }
     ],
     "execution": {

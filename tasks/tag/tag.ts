@@ -47,7 +47,9 @@ type SuccessResponse = {
 type Response = SuccessResponse | FailureResponse;
 
 export async function addTag(options: TagOptions, executor: ExecutableFunction): Promise<Response> {
-    const repoUrl = `${options.ServiceUrl}/${options.RepoId}.git`;
+    // So far, `.git` does not need to be supplied. 
+    // Azure DevOps requires that no `.git` path be supplied.
+    const repoUrl = `${options.ServiceUrl}/${options.RepoId}`;
 
     const extraHeader = buildCredentials(options.Credentials);
 
