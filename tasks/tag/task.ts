@@ -48,9 +48,8 @@ function failTask(message: string) {
     tl.setResult(tl.TaskResult.Failed, message);
 }
 
-function prepWorkingDirectory(input: { workingDirectory: string, rawWorkingDirectoryInput: string }) {
-    console.log(`"${input.workingDirectory} "${input.rawWorkingDirectoryInput}"`)
-
+function prepWorkingDirectory(input: { workingDirectory: string, rawWorkingDirectoryInput: string }) {    
+    tl.debug(`Realized Dir: "${input.workingDirectory}" Raw Dir:"${input.rawWorkingDirectoryInput}"`);
     const defaultWorkingDirectoryValue = "$(Build.ArtifactStagingDirectory)/universal-tagging-prep-currenttime";
     
     if (input.rawWorkingDirectoryInput == defaultWorkingDirectoryValue) {
@@ -149,7 +148,7 @@ async function run() {
     }
 
     const executor = (toolName: string, args: string | string[]) => {
-        console.log(`Executing ${toolName}`);
+        tl.debug(`Executing ${toolName}`);
         return tl.exec(toolName, args);
     };
 
