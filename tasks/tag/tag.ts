@@ -46,10 +46,24 @@ type SuccessResponse = {
 
 type Response = SuccessResponse | FailureResponse;
 
+function determineAppropriatePathSeparator(firstUrlPart: string): string {
+    // There is a fairly annoying behavior with Service Connections where
+    // if you supply a simple domain with no resources, an '/' is appended
+    // to the URL. The annoyance comes from the situation where a resource 
+    // is supplied- not '/' is then appended.
+
+    if (firstUrlPart.endsWith("/")) {
+        return "";
+    }
+
+    return "/";
+}
+
 export async function addTag(options: TagOptions, executor: ExecutableFunction): Promise<Response> {
     // So far, `.git` does not need to be supplied. 
-    // Azure DevOps requires that no `.git` path be supplied.
-    const repoUrl = `${options.ServiceUrl}/${options.RepoId}`;
+    // Azure DevOps requires that no `.git` path be supplied.        
+    const pathSeparator = determineAppropriatePathSeparator(options.ServiceUrl)
+    const repoUrl = `${options.ServiceUrl}${pathSeparator}${options.RepoId}`;
 
     const extraHeader = buildCredentials(options.Credentials);
 

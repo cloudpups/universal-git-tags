@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "universaltags",
     "publisher": "cloudpup",
-    "version": "0.0.82",
+    "version": "0.0.84",
     "name": "Universal Git Tags",
     "description": "Add a Tag to any commit, in any* system (see Overview for verified systems). Sensible defaults included.",
     "homepage":"https://github.com/cloudpups/universal-git-tags",

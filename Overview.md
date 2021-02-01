@@ -44,6 +44,12 @@ For Base64 encoding, Google has a fairly handy tool: https://toolbox.googleapps.
   * **Notice** you must prepend your PAT with a colon *before* encoding it.
 * Using the newly encoded value in place of `encodedValue`, supply the following string to the Service Connection: `basic encodedValue`
 
+### BitBucket
+
+* [Generate an App Password](https://support.atlassian.com/bitbucket-cloud/docs/app-passwords/) with the proper permissions to read and write to repositories.
+* Using your **App Password** in place of `token`, and your **username** in place of `user`, encode the following string in Base64: `user:token`  
+* Using the newly encoded value in place of `encodedValue`, supply the following string to the Service Connection: `Basic encodedValue`
+
 ### GitLab
 
 *help with verification would be appreciated*
