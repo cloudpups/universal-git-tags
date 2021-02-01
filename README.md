@@ -2,6 +2,11 @@
 
 An Azure DevOps Pipelines Plugin that adds a Task with broader SCM support and less opinions than other git tag related Tasks.
 
+## Documentation
+
+* [Overview](./docs/Overview.md)
+* [Verified/Supported Systems and Usage Guidelines](./docs/VerifiedSystems.md)
+
 ## Motivation
 
 There are many [plugins related to Git Tags](https://marketplace.visualstudio.com/search?term=git%20tag&target=AzureDevOps&category=All%20categories&sortBy=Relevance) in existance today. Why create another?

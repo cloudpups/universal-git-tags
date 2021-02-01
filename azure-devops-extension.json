@@ -2,9 +2,9 @@
     "manifestVersion": 1,
     "id": "universaltags",
     "publisher": "cloudpup",
-    "version": "0.0.84",
+    "version": "0.0.86",
     "name": "Universal Git Tags",
-    "description": "Add a Tag to any commit, in any* system (see Overview for verified systems). Sensible defaults included.",
+    "description": "Add a Tag to any commit, in any system. Sensible defaults included.",
     "homepage":"https://github.com/cloudpups/universal-git-tags",
     "branding": {
         "color": "#C6F0FF",
@@ -32,11 +32,15 @@
     "files": [
         {
             "path": "tasks"
+        },
+        {
+            "path":"docs",
+            "addressable": true
         }
     ],
     "content": {
         "details": {
-            "path": "Overview.md"
+            "path": "docs/Overview.md"
         },
         "license": {
             "path": "LICENSE"
@@ -56,6 +60,10 @@
     "repository": {
         "type": "git",
         "uri": "https://github.com/cloudpups/universal-git-tags"
+    },
+    "CustomerQnASupport": {
+        "enableqna": false,
+        "url": "https://github.com/cloudpups/universal-git-tags/issues"
     },
     "contributions": [
         {

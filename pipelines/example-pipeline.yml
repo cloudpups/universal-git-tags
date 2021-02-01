@@ -1,0 +1,39 @@
+# Schema: https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json
+
+trigger: none
+pr: none
+
+steps:
+- task: UniversalGitTag@0
+  displayName: 'GitHub'
+  inputs:
+    credentials: 'Tagging Credentials - GitHub'
+    repoId: JoshuaTheMiller/Experiments
+    commitHash: 897bd157744c94c85e5d649df8ef9d505f21ebe8
+    tagName: TaggingSuccess
+    forcePush: true
+- task: UniversalGitTag@0
+  displayName: 'BitBucket'
+  inputs:
+    credentials: 'Tagging Credentials - BitBucket'
+    repoId: JoshuaDMiller/tagtests.git
+    commitHash: 77d27e298ff62697dd06e1149cef0c66311dd554
+    tagName: TaggingSuccess
+    forcePush: true
+- task: UniversalGitTag@0
+  displayName: 'Azure DevOps'
+  inputs:
+    credentials: 'Tagging Credentials - Azure DevOps'
+    repoId: 'PoC/_git/Test'
+    commitHash: fab1a9625e6190b75150e9297b327ec7723de675
+    tagName: TaggingSuccess
+    forcePush: true
+- task: UniversalGitTag@0
+  displayName: 'GitLab'
+  inputs:
+    credentials: 'Tagging Credentials - GitLab'
+    repoId: JoshuaTheMiller/test.git
+    commitHash: 22e6eacc754b5dbd7f391958447aedc63c8d38a4
+    tagName: TaggingSuccess
+    tagMessage: 'This was a tag created by https://dev.azure.com/JoshuaTheMiller/PoC/_releaseDefinition?definitionId=4&_a=definition-tasks&environmentId=4'
+    forcePush: true
