@@ -52,10 +52,21 @@ function prepWorkingDirectory(input: { workingDirectory: string, rawWorkingDirec
     console.log(`"${input.workingDirectory} "${input.rawWorkingDirectoryInput}"`)
 
     const defaultWorkingDirectoryValue = "$(Build.ArtifactStagingDirectory)/universal-tagging-prep-currenttime";
-
+    
     if (input.rawWorkingDirectoryInput == defaultWorkingDirectoryValue) {
         const newPath = `${input.workingDirectory}-${Date.now()}`;
         // TODO: put error handling here, though there should never be errors.    
+        tl.mkdirP(newPath);
+        console.log(`Prepped new folder at "${newPath}"`)
+        return newPath;
+    }
+    
+    // Adding this check as Azure DevOps Pipelines *Pipelines* handles input differently than releases
+    // Releases do not inject $(Build.ArtifactStagingDirectory) for the raw value, whereas Pipelines does.
+    const defaultEndsWithValue = "universal-tagging-prep-currenttime";    
+    if (input.rawWorkingDirectoryInput.endsWith(defaultEndsWithValue)) {
+        const newPath = `${input.workingDirectory.replace(defaultEndsWithValue, "")}/universal-tagging-prep-${Date.now()}`;
+        // TODO: put error handling here, though there should never be errors.
         tl.mkdirP(newPath);
         console.log(`Prepped new folder at "${newPath}"`)
         return newPath;
@@ -130,7 +141,12 @@ async function run() {
         rawWorkingDirectoryInput: maybeWorkingDirectory.RawValue
     });
     
-    tl.cd(workingDirectory);
+    try {
+        tl.cd(workingDirectory);
+    }
+    catch {
+        tl.setResult(tl.TaskResult.Failed, "Error changing directory", true);
+    }
 
     const executor = (toolName: string, args: string | string[]) => {
         console.log(`Executing ${toolName}`);

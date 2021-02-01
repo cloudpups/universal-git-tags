@@ -23,11 +23,6 @@ function buildCredentials(credentials: GitTagCredentials) {
         return `AUTHORIZATION: ${credentials.Value}`;
     }
 
-    // if (credentials.Type == 'PersonalAccessToken') {
-    //     console.log("Using PersonalAccessToken for Auth.")
-    //     return `x-oauth-basic: ${credentials.Value}`;
-    // }
-
     console.log("Using no credentials. This most likely will fail, as pushing tags should require credentials...")
     return "";
 }
