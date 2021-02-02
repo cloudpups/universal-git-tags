@@ -4,12 +4,12 @@
     "name": "UniversalGitTag",
     "friendlyName": "Universal Git Tag",
     "description": "Tag a commit",
-    "helpMarkDown": "[More information](https://github.com/cloudpups/universal-git-tags)",
+    "helpMarkDown": "* [Extension Page](https://marketplace.visualstudio.com/items?itemName=cloudpup.universaltags) \n * [Source](https://github.com/cloudpups/universal-git-tags)",
     "category": "Utility",
     "author": "CloudPup",
     "version": {
         "Major": 0,
-        "Minor": 88,
+        "Minor": 92,
         "Patch": 0
     },
     "instanceNameFormat": "Universal Git Tag",

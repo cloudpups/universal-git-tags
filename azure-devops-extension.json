@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "universaltags",
     "publisher": "cloudpup",
-    "version": "0.0.90",
+    "version": "0.0.92",
     "name": "Universal Git Tags",
     "description": "Add a Tag to any commit, in any system. Sensible defaults included.",
     "homepage":"https://github.com/cloudpups/universal-git-tags",
@@ -97,8 +97,8 @@
                             {
                                 "id": "pat",
                                 "name": "Appropriately Formatted Credentials",
-                                "description": "Each system (GitHub, BitBucket, etc) has their own special requirements for this. Please check out the Supplying Credentials section of the Overview for more detail: https://github.com/cloudpups/universal-git-tags/blob/main/Overview.md#supplying-credentials",
-                                "helpMarkDown": "Each system (GitHub, BitBucket, etc) has their own special requirements for this. Please check out the [Supplying Credentials](https://github.com/cloudpups/universal-git-tags/blob/main/Overview.md#supplying-credentials) section of the Overview for more detail.",
+                                "description": "Each system (GitHub, BitBucket, etc) has their own special requirements for this. Please check out the Supplying Credentials section of the Overview for more detail: https://github.com/cloudpups/universal-git-tags/blob/main/docs/VerifiedSystems.md",
+                                "helpMarkDown": "Each system (GitHub, BitBucket, etc) has their own special requirements for this. Please check out the [Supplying Credentials](https://github.com/cloudpups/universal-git-tags/blob/main/docs/VerifiedSystems.md) section of the Overview for more detail.",
                                 "inputMode": "passwordbox",
                                 "isConfidential": true,
                                 "validation": {
@@ -122,11 +122,10 @@
                                     "isDisabled": true
                                 }
                             }
-                        ],
-                        "helpMarkDown": "Each system (GitHub, BitBucket, etc) has their own special requirements for this. Please check out the [Supplying Credentials](https://github.com/cloudpups/universal-git-tags/blob/main/Overview.md#supplying-credentials) section of the Overview for more detail."
+                        ]                        
                     }
                 ],
-                "helpMarkDown": ""
+                "helpMarkDown": "Each system (GitHub, BitBucket, etc) has their own special requirements for this. Please check out the [Supplying Credentials](https://github.com/cloudpups/universal-git-tags/blob/main/docs/VerifiedSystems.md) section of the Overview for more detail."
             }
         }
     ]

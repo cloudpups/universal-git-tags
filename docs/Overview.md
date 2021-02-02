@@ -6,6 +6,7 @@ For clarity, the "any system" goal will *always* be a work in progress. More too
 * [BitBucket (cloud)][build]
 * [GitLab (cloud)][build]
 * [Azure DevOps Services][build]
+* Azure DevOps *Server 2019*
 
 > Hi! 👋🏻 If you want to see a new service be verified/supported, please open an [Issue](https://github.com/cloudpups/universal-git-tags/issues) (*please check if one already exists for your tool!*) describing what you want verified/supported. Including links to documentation around how access can be accomplished via the CLI, and better yet, detailed steps, will help the request go through quicker.
 

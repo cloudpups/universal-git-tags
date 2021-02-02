@@ -14,7 +14,9 @@ For Base64 encoding, Google has a fairly handy tool: https://toolbox.googleapps.
 * Using your **PAT** in place of `token`, encode the following string in Base64: `token`
 * Using the newly encoded value in place of `encodedValue`, supply the following string to the Service Connection: `basic encodedValue`
 
-## Azure DevOps
+## Azure DevOps Services
+
+*Also works for Azure DevOps Server 2019*
 
 * [Generate a PAT](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page) with the proper permissions to read and write to repositories.
 * Using your **PAT** in place of `token`, encode the following string in Base64: `:token`
