@@ -9,7 +9,7 @@
     "author": "CloudPup",
     "version": {
         "Major": 0,
-        "Minor": 92,
+        "Minor": 94,
         "Patch": 0
     },
     "instanceNameFormat": "Universal Git Tag",
@@ -53,7 +53,7 @@
         },
         {
             "name": "tagMessage",
-            "type": "string",
+            "type": "multiLine",
             "label": "Message",
             "defaultValue": "$(Build.BuildNumber)",
             "required": true,

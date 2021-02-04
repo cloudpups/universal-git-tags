@@ -1,5 +1,5 @@
 {
-    "version": "0.0.92",
+    "version": "0.0.94",
     "manifestVersion": 1,
     "publisher": "cloudpup",
     "description": "Add a Tag to any commit, in any system. Sensible defaults included.",
