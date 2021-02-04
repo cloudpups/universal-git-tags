@@ -8,10 +8,14 @@ steps:
   displayName: 'GitHub'
   inputs:
     credentials: 'Tagging Credentials - GitHub'
-    repoId: JoshuaTheMiller/Experiments
-    commitHash: 897bd157744c94c85e5d649df8ef9d505f21ebe8
-    tagName: TaggingSuccess
+    repoId: 'JoshuaTheMiller/Experiments'
+    commitHash: '897bd157744c94c85e5d649df8ef9d505f21ebe8'
+    tagName: 'TaggingSuccess'
+    tagMessage: |
+      * This is from a Release Pipeline with the following ID: $(Build.BuildNumber)
+      * Yay for testing!
     forcePush: true
+    workingDirectory: '$(Build.ArtifactStagingDirectory)/universal-tagging-prep-currenttime'
 - task: UniversalGitTag@0
   displayName: 'BitBucket'
   inputs:
