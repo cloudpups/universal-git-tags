@@ -1,0 +1,15 @@
+{    
+    "id": "universaltags-beta",
+    "name": "Universal Git Tags - Beta",
+    "branding": {
+        "color": "#393A3A",
+        "theme": "dark"
+    },
+    "icons": {
+        "default": "../images/extension-icon-beta.png"
+    },
+    "public": false,
+    "galleryFlags": [
+        "Preview"
+    ]
+}

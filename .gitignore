@@ -5,7 +5,7 @@ dist/
 package-lock.json
 
 *.js
-!webpack.config.js
+!pipelines/*.js
 
 
 

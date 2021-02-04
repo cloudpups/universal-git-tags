@@ -1,0 +1,12 @@
+{
+    "id": "universaltags",
+    "name": "Universal Git Tags",
+    "branding": {
+        "color": "#C6F0FF",
+        "theme": "light"
+    },
+    "icons": {
+        "default": "../images/extension-icon.png"
+    },
+    "public": true
+}

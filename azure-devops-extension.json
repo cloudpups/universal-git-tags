@@ -1,19 +1,11 @@
 {
-    "manifestVersion": 1,
-    "id": "universaltags",
-    "publisher": "cloudpup",
     "version": "0.0.92",
-    "name": "Universal Git Tags",
+    "manifestVersion": 1,
+    "publisher": "cloudpup",
     "description": "Add a Tag to any commit, in any system. Sensible defaults included.",
-    "homepage":"https://github.com/cloudpups/universal-git-tags",
-    "branding": {
-        "color": "#C6F0FF",
-        "theme": "light"
-    },
-    "public": true,
+    "homepage": "https://github.com/cloudpups/universal-git-tags",
     "categories": [
-        "Azure Pipelines",
-        "Build and Release"
+        "Azure Pipelines"
     ],
     "tags": [
         "build",
@@ -21,9 +13,6 @@
         "git",
         "version"
     ],
-    "icons": {
-        "default": "images/extension-icon.png"
-    },
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"
@@ -34,7 +23,7 @@
             "path": "tasks"
         },
         {
-            "path":"docs",
+            "path": "docs",
             "addressable": true
         }
     ],
@@ -122,7 +111,7 @@
                                     "isDisabled": true
                                 }
                             }
-                        ]                        
+                        ]
                     }
                 ],
                 "helpMarkDown": "Each system (GitHub, BitBucket, etc) has their own special requirements for this. Please check out the [Supplying Credentials](https://github.com/cloudpups/universal-git-tags/blob/main/docs/VerifiedSystems.md) section of the Overview for more detail."
