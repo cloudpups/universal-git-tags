@@ -1,0 +1,17 @@
+trigger: none
+pr: none
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: UniversalGitTag-BETA@0
+  inputs:
+    credentials: 'GitHub'
+    repoId: 'JoshuaTheMiller/Experiments'
+    commitHash: '8bc62a8ae8783bec22c6bfdb792ff9cbf05f44e3'
+    tagName: 'BetaTaggingTest'
+    tagMessage: '$(Build.BuildNumber)'
+    forcePush: true
+    workingDirectory: '$(Build.ArtifactStagingDirectory)/universal-tagging-prep-currenttime'
+
