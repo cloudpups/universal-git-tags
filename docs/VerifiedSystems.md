@@ -47,7 +47,7 @@ Each system's section contains various sub-sections:
 
 #### Repo Id
 
-* `{ProjectName}/_git/{RepoName}`. For example, `{JoshuaTheMiller}/_git/PublicExamples`
+* `{ProjectName}/_git/{RepoName}`. For example, `JoshuaTheMiller/_git/PublicExamples`
 
 #### SCM Url
 
