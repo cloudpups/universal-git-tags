@@ -9,7 +9,7 @@
     "author": "CloudPup",
     "version": {
         "Major": 0,
-        "Minor": 94,
+        "Minor": 98,
         "Patch": 0
     },
     "instanceNameFormat": "Universal Git Tag",
@@ -31,9 +31,9 @@
         {
             "name": "repoId",
             "type": "string",
-            "label": "Repository ID",
+            "label": "Repository Identifier",
             "required": true,
-            "helpMarkDown": "The ID of the Git Repo to push the Tag to. For example, `cloudpups/universal-git-tags`"
+            "helpMarkDown": "The URL part used to identify the Git Repo that the Tag will be pushed to. For example, `cloudpups/universal-git-tags`.\n* **Please note** that some source control tools (e.g. Azure DevOps, GitLab) require this to be formatted a specific way.\n* Check out the [systems document](https://github.com/cloudpups/universal-git-tags/blob/main/docs/VerifiedSystems.md) for more details."
         },
         {
             "name": "commitHash",

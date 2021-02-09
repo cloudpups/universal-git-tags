@@ -1,5 +1,5 @@
 {
-    "version": "0.0.94",
+    "version": "0.0.98",
     "manifestVersion": 1,
     "publisher": "cloudpup",
     "description": "Add a Tag to any commit, in any system. Sensible defaults included.",
@@ -76,8 +76,8 @@
                 "name": "credentials",
                 "displayName": "Universal Git Tagging Credentials",
                 "url": {
-                    "displayName": "SCM Url",
-                    "helpText": "Url to use."
+                    "displayName": "Appropriately Formatted Base Url",
+                    "helpText": "Each system (GitHub, BitBucket, etc) has their own special requirements for this. Please check out the Verified Systems document for more details: https://github.com/cloudpups/universal-git-tags/blob/main/docs/VerifiedSystems.md"
                 },
                 "authenticationSchemes": [
                     {
@@ -86,8 +86,7 @@
                             {
                                 "id": "pat",
                                 "name": "Appropriately Formatted Credentials",
-                                "description": "Each system (GitHub, BitBucket, etc) has their own special requirements for this. Please check out the Supplying Credentials section of the Overview for more detail: https://github.com/cloudpups/universal-git-tags/blob/main/docs/VerifiedSystems.md",
-                                "helpMarkDown": "Each system (GitHub, BitBucket, etc) has their own special requirements for this. Please check out the [Supplying Credentials](https://github.com/cloudpups/universal-git-tags/blob/main/docs/VerifiedSystems.md) section of the Overview for more detail.",
+                                "description": "Each system (GitHub, BitBucket, etc) has their own special requirements for this. Please check out the Verified Systems document for more details: https://github.com/cloudpups/universal-git-tags/blob/main/docs/VerifiedSystems.md",                                
                                 "inputMode": "passwordbox",
                                 "isConfidential": true,
                                 "validation": {
