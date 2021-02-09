@@ -18,5 +18,6 @@ Futhermore, while it is true that a script could either be added inline or in th
 ## Development
 
 ```sh
-tfx extension create --manifests azure-devops-extension.json
+tfx extension create --manifests azure-devops-extension.json --overrides-file configs/beta.json
+tfx extension create --manifests azure-devops-extension.json --overrides-file configs/live.json
 ```
