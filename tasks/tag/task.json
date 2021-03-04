@@ -9,7 +9,7 @@
     "author": "CloudPup",
     "version": {
         "Major": 0,
-        "Minor": 98,
+        "Minor": 100,
         "Patch": 0
     },
     "instanceNameFormat": "Universal Git Tag",

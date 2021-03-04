@@ -48,30 +48,30 @@ function failTask(message: string) {
     tl.setResult(tl.TaskResult.Failed, message);
 }
 
-function prepWorkingDirectory(input: { workingDirectory: string, rawWorkingDirectoryInput: string }) {    
+function prepWorkingDirectory(input: { workingDirectory: string, rawWorkingDirectoryInput: string }) {
     tl.debug(`Realized Dir: "${input.workingDirectory}" Raw Dir:"${input.rawWorkingDirectoryInput}"`);
+    
     const defaultWorkingDirectoryValue = "$(Build.ArtifactStagingDirectory)/universal-tagging-prep-currenttime";
-    
-    if (input.rawWorkingDirectoryInput == defaultWorkingDirectoryValue) {
-        const newPath = `${input.workingDirectory}-${Date.now()}`;
-        // TODO: put error handling here, though there should never be errors.    
-        tl.mkdirP(newPath);
-        console.log(`Prepped new folder at "${newPath}"`)
-        return newPath;
-    }
-    
+    const defaultEndsWithValue = "universal-tagging-prep-currenttime";
+
     // Adding this check as Azure DevOps Pipelines *Pipelines* handles input differently than releases
     // Releases do not inject $(Build.ArtifactStagingDirectory) for the raw value, whereas Pipelines does.
-    const defaultEndsWithValue = "universal-tagging-prep-currenttime";    
-    if (input.rawWorkingDirectoryInput.endsWith(defaultEndsWithValue)) {
-        const newPath = `${input.workingDirectory.replace(defaultEndsWithValue, "")}/universal-tagging-prep-${Date.now()}`;
-        // TODO: put error handling here, though there should never be errors.
-        tl.mkdirP(newPath);
-        console.log(`Prepped new folder at "${newPath}"`)
-        return newPath;
+    // TODO: would it be better to just always check for defaultEndsWithValue?
+    if (input.rawWorkingDirectoryInput != defaultWorkingDirectoryValue && 
+        !input.rawWorkingDirectoryInput.endsWith(defaultEndsWithValue)) {
+        return input.workingDirectory;
     }
 
-    return input.workingDirectory;
+    // It appears that certain versions of Azure DevOps do not substitute $(Build.ArtifactStagingDirectory) appropriately.
+    // To alleviate problems caused by strange characters in a path, this should be replaced.
+    const valueThatShouldBeSubstituted = "$(Build.ArtifactStagingDirectory)";
+    const pathStrippedOfIncorrectVariableSubstitution = input.workingDirectory.replace(valueThatShouldBeSubstituted, "artifact_staging_dir");
+
+    const newPath = pathStrippedOfIncorrectVariableSubstitution.replace(defaultEndsWithValue, `universal-tagging-prep-${Date.now()}`);
+    // TODO: put error handling here, though there should never be errors.    
+    tl.mkdirP(newPath);
+    console.log(`Prepped new folder at "${newPath}"`)
+    return newPath;
 }
 
 async function run() {
@@ -139,7 +139,7 @@ async function run() {
         workingDirectory: potentialWorkingDirectory,
         rawWorkingDirectoryInput: maybeWorkingDirectory.RawValue
     });
-    
+
     try {
         tl.cd(workingDirectory);
     }
